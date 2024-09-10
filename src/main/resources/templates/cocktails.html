@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Ingredients </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:if="${cocktails.empty}">
+        <td colspan="2">No cocktails</td>
+    </tr>
+
+    <tr th:each="cocktail : ${cocktails}">
+        <td><span th:text="${cocktail.name}">Name</span></td>
+        <td>
+            <span th:each="ingredient : ${cocktail.ingredients}">
+                <span th:text="${ingredient.name}">Ingredient name</span><br/>
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+</html>
